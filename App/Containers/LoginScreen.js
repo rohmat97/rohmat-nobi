@@ -1,4 +1,4 @@
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import BackgroundContainer from '../Components/BackgroundContainer';
 import images from '../Themes/Images';
@@ -43,16 +43,19 @@ const LoginScreen = (props) => {
   }
   return (
     <BackgroundContainer>
-      <Image source={images.logo} style={styles.logo} resizeMode='cover' />
-      <FormLogin 
-        email={email}
-        setemail={setemail}
-        password={password}
-        setpassword={setpassword}
-        />
-      <TouchableOpacity onPress={onSubmitLogin}>
-        <Image source={images.LoginButton} style={styles.ButtonLogin} resizeMode='contain' />
-      </TouchableOpacity>
+        <Image source={images.logo} style={styles.logo} resizeMode='cover' />
+        <ScrollView>
+          <FormLogin 
+            email={email}
+            setemail={setemail}
+            password={password}
+            setpassword={setpassword}
+            /> 
+            </ScrollView>
+          <TouchableOpacity onPress={onSubmitLogin}>
+            <Image source={images.LoginButton} style={styles.ButtonLogin} resizeMode='contain' />
+          </TouchableOpacity>
+       
     </BackgroundContainer>
   )
 }
@@ -69,7 +72,12 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps,mapDispatchToProps)(LoginScreen)
 
 const styles = StyleSheet.create({
-  logo: { marginTop: 22, alignSelf: 'center', width: 59, height: 15 },
+  logo: { 
+    marginTop: 22, 
+    alignSelf: 'center', 
+    width: 59, 
+    height: 15 
+  },
   ButtonLogin:{
     height:40,
     alignSelf:'center',
