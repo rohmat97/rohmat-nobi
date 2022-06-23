@@ -1,0 +1,6 @@
+module Pods_rohmatnobi {
+  umbrella header "Pods-rohmatnobi-umbrella.h"
+
+  export *
+  module * { export * }
+}
