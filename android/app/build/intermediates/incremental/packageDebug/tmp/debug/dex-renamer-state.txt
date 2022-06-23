@@ -1,4 +1,0 @@
-#Thu Jun 23 16:31:58 WIB 2022
-base.0=/Users/rohmatdasuki/Documents/rohmat-nobi/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
