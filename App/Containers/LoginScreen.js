@@ -10,13 +10,15 @@ import AuthRedux from '../Redux/AuthRedux'
 const api = Api.create()
 
 const LoginScreen = (props) => {
-  const { authSuccess,auth }  =props
+  const { authSuccess,auth,navigation }  =props
+  const {replace} = navigation
   const [email, setemail] = useState()
   const [password, setpassword] = useState()
 
   useEffect(() => {
-  }, [])
-  useEffect(() => {
+    if(auth){
+      replace('HomeScreen')
+    }
     console.log('auth', auth)
   }, [auth])
   
