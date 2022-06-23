@@ -70,7 +70,6 @@ node_modules
 *.log
 .nvm
 /bots/node_modules/
-package-lock.json
 
 # OS X
 .DS_Store
@@ -102,8 +101,6 @@ package-lock.json
 # iOS / CocoaPods
 /template/ios/build/
 /template/ios/Pods/
-/template/ios/Podfile.lock
-Gemfile.lock
 
 # Ignore RNTester specific Pods, but keep the __offline_mirrors__ here.
 Pods/*
