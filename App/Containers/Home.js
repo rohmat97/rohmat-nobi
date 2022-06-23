@@ -6,15 +6,16 @@ import ListScreen from './MenuHome/ListScreen'
 import DashboardScreen from './MenuHome/DashboardScreen'
 
 const HomeScreen = (props) => {
-    const { navigation } = props
+    const { navigation }  =props
     const [nav, setnav] = useState(true)
+    // console.log('navigation', navigation)
   return (
     <BackgroundContainer>
         {
             nav?
                 <ListScreen />
                 :
-                <DashboardScreen />
+                <DashboardScreen navigation={navigation}/>
         }
         <BottomNav nav={nav} setnav={setnav}/>
     </BackgroundContainer>

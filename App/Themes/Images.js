@@ -4,6 +4,7 @@ const images = {
   logo: require('../Images/Logo.png'),
   LoginButton: require('../Images/Login.png'),
   DepositButton: require('../Images/Deposit.png'),
+  Adds: require('../Images/Adds.png'),
   // icons
   dashboardActive: require('../Images/Icons/dashboard-active.png'),
   dashboardInactive: require('../Images/Icons/dashboard-inactive.png'),
