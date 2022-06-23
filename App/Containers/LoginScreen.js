@@ -11,7 +11,7 @@ const LoginScreen = () => {
   const [password, setpassword] = useState()
 
 
-  const onSubmitLogin =(payload) =>{
+  const onSubmitLogin =() =>{
     // console.log('payload', payload)
     const paylaod = {
       "email":email,
