@@ -14,8 +14,8 @@ const LoginScreen = () => {
   const onSubmitLogin =(payload) =>{
     // console.log('payload', payload)
     const paylaod = {
-      "email":"test@usenobi.com",
-      "password":"Test123"
+      "email":email,
+      "password":password
     }
     api.onLogin(paylaod)
       .then(success =>{

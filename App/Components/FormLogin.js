@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import colors from '../Themes/Colors'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const FormLogin = ({email, setemail, password, setpassword,}) => {
+const FormLogin = ({email, setemail, password, setpassword}) => {
     const [isEmailValid, setIsEmailValid] = useState()
     const [isPasswordValid, setIsPasswordValid] = useState()
     const [visiblePassword, setVisiblePassword] = useState(true)
@@ -50,7 +50,7 @@ const FormLogin = ({email, setemail, password, setpassword,}) => {
         secureTextEntry={visiblePassword}
         keyboardType="default"
         />
-        <Icon name={visiblePassword?"eye":"eye-slash"} size={20} style={styles.eye} color="gray" onPress={()=>setVisiblePassword(!visiblePassword)} />
+        <Icon name={!visiblePassword?"eye":"eye-slash"} size={20} style={styles.eye} color="gray" onPress={()=>setVisiblePassword(!visiblePassword)} />
       </View>
       {isPasswordValid === false &&<Text style={[styles.Errortext]}>Invalid Password</Text>}
     </View>
