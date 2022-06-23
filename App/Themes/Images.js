@@ -1,6 +1,7 @@
 // leave off @2x/@3x
 const images = {
-  logo: require('../Images/ir.png'),
+  // images
+  logo: require('../Images/Logo.png'),
   clearLogo: require('../Images/top_logo.png'),
   launch: require('../Images/launch-icon.png'),
   ready: require('../Images/your-app.png'),
@@ -9,6 +10,9 @@ const images = {
   tileBg: require('../Images/tile_bg.png'),
   background: require('../Images/BG.png'),
   buttonBackground: require('../Images/button-bg.png'),
+  LoginButton: require('../Images/Login.png'),
+  DepositButton: require('../Images/Deposit.png'),
+  // icons
   api: require('../Images/Icons/icon-api-testing.png'),
   components: require('../Images/Icons/icon-components.png'),
   deviceInfo: require('../Images/Icons/icon-device-information.png'),

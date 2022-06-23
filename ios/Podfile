@@ -10,6 +10,10 @@ target 'rohmatnobi' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'rohmatnobiTests' do
     inherit! :complete
     # Pods for testing
