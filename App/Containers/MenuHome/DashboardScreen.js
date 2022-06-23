@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   logout: {
-    width: '74%',
+    width: 279,
     height: 40,
     backgroundColor: 'red',
     alignSelf: 'center',
