@@ -1,0 +1,34 @@
+name: Android
+
+on:
+  push:
+    branchs:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: '~/.npm'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm install 
+      - run: npm ci
+      - run: npx jetifier
+      - run: ./gradlew assembleRelease
+        working-directory: android
+        name: apk RohmatNobi
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: RohmatNobi-apk
+          path: '**/*.apk'
