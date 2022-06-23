@@ -22,7 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: yarn install 
-      - run: yarn ci
+      - run: npm ci
       - run: npx jetifier
       - run: ./gradlew assembleRelease
         working-directory: android
