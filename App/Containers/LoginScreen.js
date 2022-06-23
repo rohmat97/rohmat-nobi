@@ -4,13 +4,22 @@ import BackgroundContainer from '../Components/BackgroundContainer';
 import images from '../Themes/Images';
 import FormLogin from '../Components/FormLogin';
 import Api from '../Services/Api';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import AuthRedux from '../Redux/AuthRedux'
 const api = Api.create()
 
-const LoginScreen = () => {
+const LoginScreen = (props) => {
+  const { authSuccess,auth }  =props
   const [email, setemail] = useState()
   const [password, setpassword] = useState()
 
-
+  useEffect(() => {
+  }, [])
+  useEffect(() => {
+    console.log('auth', auth)
+  }, [auth])
+  
   const onSubmitLogin =() =>{
     // console.log('payload', payload)
     const paylaod = {
@@ -21,6 +30,7 @@ const LoginScreen = () => {
       .then(success =>{
         if(success?.status ===200){
           console.log('success', success.data)
+          authSuccess(success.data)
         }else{
           Alert.alert('Failed',success.data.message)
         }
@@ -44,8 +54,17 @@ const LoginScreen = () => {
     </BackgroundContainer>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth.payload
+  }
+}
 
-export default LoginScreen
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(Object.assign(AuthRedux), dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginScreen)
 
 const styles = StyleSheet.create({
   logo: { marginTop: 22, alignSelf: 'center', width: 59, height: 15 },
