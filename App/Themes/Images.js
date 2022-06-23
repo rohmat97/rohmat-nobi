@@ -9,6 +9,8 @@ const images = {
   dashboardInactive: require('../Images/Icons/dashboard-inactive.png'),
   listActive: require('../Images/Icons/list-active.png'),
   listInactive: require('../Images/Icons/list-inactive.png'),
+  search: require('../Images/Icons/search.png'),
+  back: require('../Images/Icons/back.png')
 }
 
 export default images
