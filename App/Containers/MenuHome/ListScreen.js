@@ -4,17 +4,25 @@ import Api from '../../Services/Api'
 import images from '../../Themes/Images';
 import colors from '../../Themes/Colors';
 
-const ListScreen = () => {
+const ListScreen = (props) => {
+    const {setLoading}=props
     const [List, setList] = useState([])
     const [search, setsearch] = useState()
     useEffect(() => {
+        setLoading(true)
         Api.create().getList()
             .then(success => {
                 // console.log('success.data', success.data)
                 setList(success.data.data)
+                setTimeout(() => {
+                    setLoading(false)
+                  }, 500);
             })
             .catch(err => {
                 console.log('err', err)
+                setTimeout(() => {
+                    setLoading(false)
+                  }, 500);
             })
     }, [])
     const renderItem = ({ item }) => {

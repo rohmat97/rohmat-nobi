@@ -1,4 +1,4 @@
-import { ActivityIndicator, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Api from '../../Services/Api'
 import { connect } from 'react-redux'
@@ -7,10 +7,11 @@ import AuthRedux from '../../Redux/AuthRedux'
 import images from '../../Themes/Images'
 
 const DashboardScreen = (props) => {
-  const { authSuccess, auth, navigation } = props
+  const { authSuccess, auth, navigation,setLoading } = props
   const [dashboard, setdashboard] = useState()
   const [downloadDeposit, setdownloadDeposit] = useState(false)
   useEffect(() => {
+    setLoading(true)
     const payload = {
       token: auth.token
     }
@@ -18,15 +19,27 @@ const DashboardScreen = (props) => {
       .then(success => {
         // console.log('success.data', success.data)
         setdashboard(success.data)
+        setLoading(setLoading)
+        setTimeout(() => {
+          setLoading(false)
+        }, 500);
       })
       .catch(err => {
         console.log('err', err)
+        Alert.alert("error", err.toString())
+        setTimeout(() => {
+          setLoading(false)
+        }, 500);
       })
   }, [])
 
   const onLogout = () => {
+    setLoading(true)
     authSuccess()
     navigation.replace('LoginScreen')
+    setTimeout(() => {
+      setLoading(false)
+    }, 500);
   }
   return (
     <View style={{ flex: 1 }}>

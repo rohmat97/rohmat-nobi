@@ -20,7 +20,9 @@ const LoginScreen = (props) => {
   useEffect(() => {
     if (auth) {
       replace('HomeScreen')
-      setLoading(false)
+      setTimeout(() => {
+        setLoading(false)
+      }, 500);
     }
     console.log('auth', auth)
   }, [auth])
@@ -38,13 +40,17 @@ const LoginScreen = (props) => {
           console.log('success', success.data)
           authSuccess(success.data)
         } else {
-          setLoading(false)
+          setTimeout(() => {
+            setLoading(false)
+          }, 500);
           Alert.alert('Failed', success.data.message)
         }
       })
       .catch(err => {
         console.log('err', err)
-        setLoading(false)
+        setTimeout(() => {
+          setLoading(false)
+        }, 500);
         Alert.alert('Failed', err.toSting())
       })
   }
