@@ -43,7 +43,7 @@ const LoginScreen = (props) => {
           setTimeout(() => {
             setLoading(false)
           }, 500);
-          Alert.alert('Failed', success.data.message)
+          Alert.alert('Failed', JSON.stringify(success))
         }
       })
       .catch(err => {
@@ -51,7 +51,7 @@ const LoginScreen = (props) => {
         setTimeout(() => {
           setLoading(false)
         }, 500);
-        Alert.alert('Failed', err.toSting())
+        Alert.alert('Failed', JSON.stringify(err))
       })
   }
   const HandleLoadingAction = () => (
